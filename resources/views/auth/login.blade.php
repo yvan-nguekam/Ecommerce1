@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.base')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +69,120 @@
             </div>
         </div>
     </div>
+</div> --}}
+
+<style>
+    input [type="text"]:focus,
+    [type="email"]:focus,
+    [type="url"]:focus,
+    [type="password"]:focus,
+    [type="number"]:focus,
+    [type="date"]:focus,
+    [type="datetime-local"]:focus,
+    [type="month"]:focus,
+    [type="search"]:focus,
+    [type="tel"]:focus,
+    [type="time"]:focus,
+    [type="week"]:focus,
+    [multiple]:focus,
+    textarea:focus,
+    select:focus {
+        --tw-ring-color: transparent !important;
+        border-color: transparent !important;
+    }
+
+    input [type="text"]:hover,
+    [type="email"]:hover,
+    [type="url"]:hover,
+    [type="password"]:hover,
+    [type="number"]:hover,
+    [type="date"]:hover,
+    [type="datetime-local"]:hover,
+    [type="month"]:hover,
+    [type="search"]:hover,
+    [type="tel"]:hover,
+    [type="time"]:hover,
+    [type="week"]:hover,
+    [multiple]:hover,
+    textarea:hover,
+    select:hover {
+        --tw-ring-color: transparent !important;
+        border-color: transparent !important;
+    }
+
+    input [type="text"]:active,
+    [type="email"]:active,
+    [type="url"]:active,
+    [type="password"]:active,
+    [type="number"]:active,
+    [type="date"]:active,
+    [type="datetime-local"]:active,
+    [type="month"]:active,
+    [type="search"]:active,
+    [type="tel"]:active,
+    [type="time"]:active,
+    [type="week"]:active,
+    [multiple]:active,
+    textarea:active,
+    select:active {
+        --tw-ring-color: transparent !important;
+        border-color: transparent !important;
+    }
+</style>
+<!-- Log In Section Start -->
+<div class="login-section">
+    <div class="materialContainer">
+        <div class="box">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="login-title">
+                    <h2>{{ __('Login') }}</h2>
+                </div>
+                <div>
+                    <div class="input">
+                        <label for="name">{{ __('Username') }}</label>
+                        <input type="email" id="name" class="form-control @error('email') is-invalid @enderror" name="email" :value="old('email')" required autofocus
+                            autocomplete="name">
+                    </div>
+                </div>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                
+
+                <div class="input">
+                    <label for="pass">{{ __('Password') }}</label>
+                    <input type="password" id="pass" class="block mt-1 w-full @error('password') is-invalid @enderror" name="password" required=""
+                        autocomplete="current-password">
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <a href="javascript:void(0)" class="pass-forgot">Forgot your password?</a>
+
+                {{-- @if (Route::has('password.request'))
+                    <a class="pass-forgot" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                @endif --}}
+
+                <div class="button login">
+                    <button type="submit">
+                        <span>Log In</span>
+                        <i class="fa fa-check"></i>
+                    </button>
+                </div>
+
+                <p>Not a member? <a href="{{ route('register') }}" class="theme-color">Sign up now</a></p>
+            </form>
+        </div>
+    </div>
 </div>
+<!-- Log In Section End -->
 @endsection
