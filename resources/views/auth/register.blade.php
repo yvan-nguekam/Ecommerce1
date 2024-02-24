@@ -107,58 +107,46 @@
                     <h2>{{ __('Register') }}</h2>
                 </div>
                 
-                <div>
-                    <div class="input">
-                        <label for="name">Name</label>
-                        <input type="text" id="name"  class="block mt-1 w-full @error('name') is-invalid @enderror" type="text" name="name"
-                            :value="old('name')" required="" autofocus="" autocomplete="name">
-                    </div>
+                <div class="input">
+                    <label for="name">Name</label>
+                    <input type="text" id="name"  class="block mt-1 w-full" type="text" name="name"
+                        :value="old('name')" required="" autofocus="" autocomplete="name">
                     @error('name')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="text-dander mt-3" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-                
-                <div>
-                    <div class="input">
-                        <label for="phone">Phone</label>
-                        <input type="text" id="phone" class="block mt-1 w-full" type="text" name="phone"
-                            :value="old('phone')" required="" autofocus="" autocomplete="phone">
-                    </div>
 
-                </div>
+                <div class="input">
+                    <label for="emailname">Email Address</label>
+                    <input type="email" id="emailname" class="block mt-1 w-full" type="email" name="email"
+                        :value="old('email')" required="" autocomplete="username">
 
-                <div>
-                    <div class="input">
-                        <label for="emailname">Email Address</label>
-                        <input type="email" id="emailname" class="block mt-1 w-full @error('email') is-invalid @enderror" type="email" name="email"
-                            :value="old('email')" required="" autocomplete="username">
-                    </div>
                     @error('email')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="text-danger mt-3" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
 
-                <div>
-                    <div class="input">
-                        <label for="pass">Password</label>
-                        <input type="password" id="pass" class="block mt-1 w-full" name="password" required=""
-                            autocomplete="new-password">
-                    </div>
-
+                <div class="input">
+                    <label for="pass">Password</label>
+                    <input type="password" id="pass" class="block mt-1 w-full" name="password" required=""
+                        autocomplete="new-password">
+                    @error('password')
+                        <span class="text-danger mt-3" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
-                <div>
-                    <div class="input">
-                        <label for="compass">Confirm Password</label>
-                        <input type="password" id="compass" class="block mt-1 w-full" name="password_confirmation"
-                            required="" autocomplete="new-password">
-                    </div>
-
+                <div class="input">
+                    <label for="compass">Confirm Password</label>
+                    <input type="password" id="compass" class="block mt-1 w-full" name="password_confirmation"
+                        required="" autocomplete="new-password">
                 </div>
+
 
                 <div class="button login">
                     <button type="submit">
